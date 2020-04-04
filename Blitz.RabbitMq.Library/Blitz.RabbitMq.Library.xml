@@ -312,6 +312,11 @@
             <param name="logger">ILogger</param>
             <param name="config">IConfigurationRoot</param>
         </member>
+        <member name="P:Blitz.RabbitMq.Library.RabbitMQClient.KeepListening">
+            <summary>
+            Keep Listening
+            </summary>
+        </member>
         <member name="M:Blitz.RabbitMq.Library.RabbitMQClient.SetupDequeueEvent(Blitz.RabbitMq.Library.Models.RabbitMqInstanceConfiguration,Blitz.RabbitMq.Library.QueueMessageHandler)">
             <summary>
             Dequeue a message 

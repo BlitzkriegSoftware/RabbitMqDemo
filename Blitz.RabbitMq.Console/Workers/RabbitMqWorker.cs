@@ -7,6 +7,7 @@ using RabbitMQ.Client.Events;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Blitz.RabbitMq.Demo.Workers
 {
@@ -48,6 +49,14 @@ namespace Blitz.RabbitMq.Demo.Workers
                 var msg = new Models.FakeMessage($"Message: {i}").ToJson();
                 this.client.Enqueue<string>(msg, queueConfig);
             }
+
+            int listenFor = o.MessageCount * 10 + 5000;
+
+            Task.Factory.StartNew(async () =>
+            {
+                await Task.Delay(listenFor).ConfigureAwait(false);
+                this.client.KeepListening = false;
+            });
 
             this.client.SetupDequeueEvent(queueConfig, MyQueueMessageHandler);
         }

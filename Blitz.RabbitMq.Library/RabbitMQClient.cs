@@ -43,6 +43,11 @@ namespace Blitz.RabbitMq.Library
         }
 
         /// <summary>
+        /// Keep Listening
+        /// </summary>
+        public bool KeepListening { get; set; } = true;
+
+        /// <summary>
         /// Dequeue a message 
         /// <para></para>
         /// </summary>
@@ -69,7 +74,7 @@ namespace Blitz.RabbitMq.Library
                                          autoAck: false,
                                          consumer: consumer);
 
-                    while (true) { }
+                    while (this.KeepListening) { }
                 }
             }
         }
@@ -147,7 +152,11 @@ namespace Blitz.RabbitMq.Library
             {
                 using (IModel model = connection.CreateModel())
                 {
-                    model.QueuePurge(queueConfiguration.QueueName);
+                    try
+                    {
+                        model.QueuePurge(queueConfiguration.QueueName);
+                    }
+                    catch { }
                 }
             }
         }

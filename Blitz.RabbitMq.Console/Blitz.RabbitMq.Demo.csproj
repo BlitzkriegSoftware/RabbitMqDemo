@@ -5,7 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <Copyright>Copyright © 2020 Blitzkrieg Software</Copyright>
     <Company>Blitzkrieg Software</Company>
-    <Description>Sql Extract To Seed Data</Description>
+    <Description>Demo using RabbitMQ in DotNet Core</Description>
     <InformationalVersion>1.1.0</InformationalVersion>
     <FileVersion>1.1.0</FileVersion>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
