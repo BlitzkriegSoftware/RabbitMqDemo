@@ -43,7 +43,7 @@ The configuration for RabbitMQ is in `rabbitmqconfig.json`:
 Where:
 
 | Key  | Description |
-|: --- |: --- |
+|:---|:---|
 | Host | (string) DNS address or IP Address |
 | Port | (int) (default) 5672 |
 | Username | (string) (default) guest |
