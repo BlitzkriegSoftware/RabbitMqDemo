@@ -42,21 +42,21 @@ The configuration for RabbitMQ is in `rabbitmqconfig.json`:
 
 Where:
 
-| **Key**  | **Description** |
-|:---|:---|
-| Host | (string) DNS address or IP Address |
-| Port | (int) (default) 5672 |
-| Username | (string) (default) guest |
-| Password | (string) (default) guest |
-| ExchangeName | (string) (default) myExchange |
-| QueueName | (string) (default) myQueue |
-| RoutingKey | (string) (default) myRoutingKey |
-| MessageExpiration | (int) Milliseconds (default) 36000000 |
-| MessageDeliveryMode | (byte) 2=Persistant (default), 1= Direct |
-| MessagePersistent | (bool) (default: true) |
-| QueueDurable | (bool) (default: true) |
-| QueueExclusive | (bool) (default: false)|
-| QueueAutoDelete | (bool) (default: false) |
+| **Key**  | **Type** | **Required** | **Description** | **Default** |
+|:---|:---|:---:|:---|:---|
+| Host | string |  yes | DNS address or IP Address ||
+| Port | int | no | IP Port (default) | 5672 |
+| Username | string | yes | Username | guest |
+| Password | string | yes | Password | guest |
+| ExchangeName | string | yes | Exchange | myExchange |
+| QueueName | string | yes | Queue | myQueue |
+| RoutingKey | string | yes | Routing | myRoutingKey |
+| MessageExpiration | int | no | Milliseconds | 36000000 |
+| MessageDeliveryMode | byte | no | Message Delivery Mode 2=Persistant, 1= Direct | 2 |
+| MessagePersistent | bool | no | Message Persistent | true |
+| QueueDurable | bool | no | Queue Durable | true |
+| QueueExclusive | bool | no | Queue Exclusive | false|
+| QueueAutoDelete | bool | no | Queue Auto-Delete | false |
 
 > See: https://www.rabbitmq.com/dotnet-api-guide.html
 
@@ -110,13 +110,17 @@ Where:
 ### Receiving Messages
 
 1. Define a handler that conforms to
+
 ```c#
 public delegate void QueueMessageHandler(IQueueEngine queueEngine, ILogger logger, IModel model, BasicDeliverEventArgs ea);
 ```
+
 Then set up a listener and loop infinitely:
+
 ```c#
 client.SetupDequeueEvent(queueConfig, MyQueueMessageHandler);
 ```
+
 Where:
 * `queueConfig` is of type `RabbitMqInstanceConfiguration` 
 * `MyQueueMessageHandler` is your concrete implementation of your handler
