@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Blitz.RabbitMq.Library.Models
 {
@@ -13,10 +11,12 @@ namespace Blitz.RabbitMq.Library.Models
         /// Quick Name: Exchange
         /// </summary>
         public const string ExchangeName_Default = "myExchange";
+
         /// <summary>
         /// Quick Name: Queue
         /// </summary>
         public const string QueueName_Default = "myQueue";
+
         /// <summary>
         /// Quick Name: Routing Key
         /// </summary>
@@ -26,10 +26,12 @@ namespace Blitz.RabbitMq.Library.Models
         /// (optional) Exchange
         /// </summary>
         public string ExchangeName { get; set; } = RabbitMqInstanceConfiguration.ExchangeName_Default;
+
         /// <summary>
         /// (required) Queue Name
         /// </summary>
         public string QueueName { get; set; } = RabbitMqInstanceConfiguration.QueueName_Default;
+
         /// <summary>
         /// (optional) Route
         /// </summary>
@@ -66,7 +68,7 @@ namespace Blitz.RabbitMq.Library.Models
         /// <summary>
         /// To String
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Debug String</returns>
         public override string ToString()
         {
             return $"Exchange: {this.ExchangeName}, Queue: {this.QueueName}, Route: {this.RoutingKey}";

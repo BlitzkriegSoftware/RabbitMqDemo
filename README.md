@@ -2,6 +2,7 @@
 A Demo of Using RabbitMQ from .NET Core 3.1 LTS
 
 > https://www.nuget.org/packages/RabbitMQ.Client
+> http://rabbitmq.github.io/rabbitmq-dotnet-client/index.html
 
 ## Set up
 

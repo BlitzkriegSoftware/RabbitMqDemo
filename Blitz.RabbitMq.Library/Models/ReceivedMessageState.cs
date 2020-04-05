@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Blitz.RabbitMq.Library.Models
+﻿namespace Blitz.RabbitMq.Library.Models
 {
     /// <summary>
     /// What is the state of the received message

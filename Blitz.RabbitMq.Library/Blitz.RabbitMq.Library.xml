@@ -211,7 +211,7 @@
             <summary>
             Debugging string
             </summary>
-            <returns></returns>
+            <returns>Debugging String</returns>
         </member>
         <member name="T:Blitz.RabbitMq.Library.Models.RabbitMqInstanceConfiguration">
             <summary>
@@ -264,7 +264,7 @@
             <summary>
             To String
             </summary>
-            <returns></returns>
+            <returns>Debug String</returns>
         </member>
         <member name="T:Blitz.RabbitMq.Library.Models.ReceivedMessageState">
             <summary>
@@ -320,7 +320,6 @@
         <member name="M:Blitz.RabbitMq.Library.RabbitMQClient.SetupDequeueEvent(Blitz.RabbitMq.Library.Models.RabbitMqInstanceConfiguration,Blitz.RabbitMq.Library.QueueMessageHandler)">
             <summary>
             Dequeue a message 
-            <para></para>
             </summary>
             <param name="queueConfiguration">(sic)</param>
             <param name="handler">QueueMessageHandler</param>

@@ -49,7 +49,6 @@ namespace Blitz.RabbitMq.Library
 
         /// <summary>
         /// Dequeue a message 
-        /// <para></para>
         /// </summary>
         /// <param name="queueConfiguration">(sic)</param>
         /// <param name="handler">QueueMessageHandler</param>

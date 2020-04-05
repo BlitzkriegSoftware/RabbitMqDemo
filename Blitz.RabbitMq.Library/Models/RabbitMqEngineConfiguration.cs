@@ -11,14 +11,17 @@ namespace Blitz.RabbitMq.Library.Models
         /// Localhost
         /// </summary>
         public const string Localhost_Default = "localhost";
+
         /// <summary>
         /// Username: guest
         /// </summary>
         public const string Username_Default = "guest";
+
         /// <summary>
         /// Password: guest
         /// </summary>
         public const string Password_Default = "guest";
+
         /// <summary>
         /// Port
         /// </summary>
@@ -38,10 +41,12 @@ namespace Blitz.RabbitMq.Library.Models
         /// Message Property: Expiration 600 minutes
         /// </summary>
         public const string Message_Expiration_Default = "36000000";
+
         /// <summary>
         /// Message Property: Persistant Message
         /// </summary>
         public const int Message_DeliveryMode_Default = 2;
+
         /// <summary>
         /// Message Property: Persistant Message
         /// </summary>
@@ -51,10 +56,12 @@ namespace Blitz.RabbitMq.Library.Models
         /// Queue Property: Persistant Queue
         /// </summary>
         public const bool Queue_Durable_Default = true;
+
         /// <summary>
         /// Queue Property: Not exclusive
         /// </summary>
         public const bool Queue_Exclusive_Default = false;
+
         /// <summary>
         /// Queue Property: Do not auto delete
         /// </summary>
@@ -64,35 +71,44 @@ namespace Blitz.RabbitMq.Library.Models
         /// Host (default: <c>Localhost_Default</c>)
         /// </summary>
         public string Host { get; set; }
+
         /// <summary>
         /// Port: (default: <c>Port_Default</c>)
         /// </summary>
         public int Port { get; set; }
+
         /// Username: (default: <c>Username_Default</c>)
         public string Username { get; set; }
+
         /// Password: (default: <c>Password_Default</c>)
         public string Password { get; set; }
+
         /// <summary>
         /// MessageExpiration (default: <c>Message_Expiration_Default</c>)
         /// <para>This is a long in milliseconds (ms) as a string</para>
         /// </summary>
         public string MessageExpiration { get; set; }
+
         /// <summary>
         /// MessageDeliveryMode (default: <c>Message_DeliveryMode_Default</c>)
         /// </summary>
         public byte MessageDeliveryMode { get; set; }
+
         /// <summary>
         /// MessagePersistent (default: <c>Message_Persistent_Default</c> aka true)
         /// </summary>
         public bool MessagePersistent { get; set; }
+
         /// <summary>
         /// QueueDurable (default: <c>Queue_Durable_Default</c> aka true)
         /// </summary>
         public bool QueueDurable { get; set; }
+
         /// <summary>
         ///   (default: <c>Queue_Exclusive_Default</c>) aka false
         /// </summary>
         public bool QueueExclusive { get; set; }
+
         /// <summary>
         /// QueueAutoDelete (default: <c>Queue_AutoDelete_Default</c> aka false
         /// </summary>
@@ -147,7 +163,7 @@ namespace Blitz.RabbitMq.Library.Models
         /// <summary>
         /// Debugging string
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Debugging String</returns>
         public override string ToString()
         {
             return string.Format($"RabbitMQ - {this.Host}: {this.Port} as '{this.Username}', exp: {this.MessageExpiration} ms, Delivery Mode {this.MessageDeliveryMode}, Persist: {this.MessagePersistent}, AutoDelete: {this.QueueAutoDelete}, Durable: {this.QueueDurable}, Exclusive: {this.QueueExclusive}");
