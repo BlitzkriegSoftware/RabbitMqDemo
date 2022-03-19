@@ -74,7 +74,7 @@ namespace Blitz.RabbitMq.Demo.Workers
             if (ea == null) throw new ArgumentNullException(nameof(ea));
 
             var state = ReceivedMessageState.SuccessfullyProcessed;
-            var body = ea.Body;
+            var body = ea.Body.ToArray();
             var message = Encoding.UTF8.GetString(body);
             queueEngine.SendResponse(model, ea, state);
             logger.LogInformation("Received: {0}, Status: {1}", message, state);
