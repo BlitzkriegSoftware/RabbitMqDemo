@@ -4,6 +4,7 @@ using CommandLine;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using NetEscapades.Extensions.Logging.RollingFile;
 using System;
 using System.IO;
 
@@ -82,6 +83,22 @@ namespace Blitz.RabbitMq.Demo
 
                 // Console is generically cloud friendly
                 loggingBuilder.AddConsole();
+
+                // File based logging
+                loggingBuilder.AddFile(options => {
+                    // The log file prefixes
+                    options.FileName = "diagnostics-";
+                    // The directory to write the logs
+                    options.LogDirectory = ".";
+                    // The maximum log file size (20MB here)
+                    options.FileSizeLimit = 20 * 1024 * 1024;
+                    // When maximum file size is reached, create a new file, up to a limit of 200 files per periodicity
+                    options.FilesPerPeriodicityLimit = 200;
+                    // The log file extension
+                    options.Extension = "log";
+                    // Roll log files hourly instead of daily.
+                    options.Periodicity = PeriodicityOptions.Hourly; 
+                });
             });
 
             // App to run
