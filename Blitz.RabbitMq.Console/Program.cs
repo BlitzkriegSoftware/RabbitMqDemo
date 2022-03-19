@@ -9,13 +9,13 @@ using System.IO;
 
 namespace Blitz.RabbitMq.Demo
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             _args = args;
 
-            Console.WriteLine($"{Program.ProgramMetadata.ToString()} {Program.ProgramMetadata.Copyright}");
+            Console.WriteLine($"{Program.ProgramMetadata} {Program.ProgramMetadata.Copyright}");
 
             Parser.Default.ParseArguments<CommandOptions>(args)
                    .WithParsed<CommandOptions>(o =>

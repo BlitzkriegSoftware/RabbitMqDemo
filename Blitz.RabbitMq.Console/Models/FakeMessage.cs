@@ -8,11 +8,21 @@ namespace Blitz.RabbitMq.Demo.Models
     /// </summary>
     public class FakeMessage
     {
+        /// <summary>
+        /// CTOR
+        /// </summary>
+        /// <param name="message">Messages</param>
         public FakeMessage(string message)
         {
             this.DateCreated = DateTime.UtcNow;
             this.Message = message;
+            this.MessageId = Guid.NewGuid();
         }
+
+        /// <summary>
+        /// Message Id
+        /// </summary>
+        public Guid MessageId { get; set; } 
 
         /// <summary>
         /// Message
@@ -30,7 +40,7 @@ namespace Blitz.RabbitMq.Demo.Models
         /// <returns>string</returns>
         public override string ToString()
         {
-            return string.Format("TS: {0:O}, Message: {1}", this.DateCreated, this.Message);
+            return string.Format("TS: {0:O}, {1}, Message: {2}", this.DateCreated, this.MessageId, this.Message);
         }
 
         /// <summary>

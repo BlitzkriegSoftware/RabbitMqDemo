@@ -2,7 +2,7 @@
   "profiles": {
     "Blitz.RabbitMq.Demo": {
       "commandName": "Project",
-      "commandLineArgs": "-v -m 100"
+      "commandLineArgs": "-v -m 100 -s -d"
     }
   }
 }

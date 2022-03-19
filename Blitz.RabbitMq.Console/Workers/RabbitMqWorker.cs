@@ -14,7 +14,9 @@ namespace Blitz.RabbitMq.Demo.Workers
     {
         private readonly ILogger _logger;
         private readonly IConfigurationRoot _config;
-        private RabbitMQClient client;
+        private static Models.CommandOptions _commandOptions;
+
+        private RabbitMQClient _client;
 
         /// <summary>
         /// CTOR
@@ -27,9 +29,9 @@ namespace Blitz.RabbitMq.Demo.Workers
             this._config = config;
         }
 
-        public void Run(Models.CommandOptions o)
+        public void Run(Models.CommandOptions commandLineOptions)
         {
-            if (o == null) throw new ArgumentNullException(nameof(o));
+            RabbitMqWorker._commandOptions = commandLineOptions ?? throw new ArgumentNullException(nameof(commandLineOptions));
 
             var queueConfig = new Library.Models.RabbitMqInstanceConfiguration();
             foreach (var c in this._config.AsEnumerable())
@@ -39,29 +41,36 @@ namespace Blitz.RabbitMq.Demo.Workers
 
             this._logger.LogDebug(queueConfig.ToString());
 
-            this.client = new RabbitMQClient(this._logger, this._config);
+            this._client = new RabbitMQClient(this._logger, this._config);
 
-            this.client.PurgeQueue(queueConfig);
-
-            for (int i = 0; i < o.MessageCount; i++)
+            if (!commandLineOptions.DoNotPurge)
             {
-                var msg = new Models.FakeMessage($"Message: {i}").ToJson();
-                this.client.Enqueue<string>(msg, queueConfig);
+                this._logger.LogInformation("Purging existing messages");
+                this._client.PurgeQueue(queueConfig);
+            } else
+            {
+                this._logger.LogInformation("Preserving existing messages");
             }
 
-            int listenFor = o.MessageCount * 10 + 5000;
+            for (int i = 0; i < commandLineOptions.MessageCount; i++)
+            {
+                var msg = new Models.FakeMessage($"Message: {i}").ToJson();
+                this._client.Enqueue<string>(msg, queueConfig);
+            }
+
+            int listenFor = commandLineOptions.MessageCount * 10 + 5000;
 
             Task.Factory.StartNew(async () =>
             {
                 await Task.Delay(listenFor).ConfigureAwait(false);
-                this.client.KeepListening = false;
+                this._client.KeepListening = false;
             });
 
-            this.client.SetupDequeueEvent(queueConfig, MyQueueMessageHandler);
+            this._client.SetupDequeueEvent(queueConfig, MyQueueMessageHandler);
         }
 
         /// <summary>
-        /// Handler (Fake) always returns happy
+        /// Handler (Fake) if unit-of-work disable, always succeeds, otherwise random results
         /// </summary>
         /// <param name="logger">ILogger</param>
         /// <param name="model">IModel</param>
@@ -74,10 +83,55 @@ namespace Blitz.RabbitMq.Demo.Workers
             if (ea == null) throw new ArgumentNullException(nameof(ea));
 
             var state = ReceivedMessageState.SuccessfullyProcessed;
+            if(RabbitMqWorker._commandOptions.SimulateUnitsOfWork)
+            {
+                state = DoUnitOfWork();
+            }
+            
             var body = ea.Body.ToArray();
             var message = Encoding.UTF8.GetString(body);
+
             queueEngine.SendResponse(model, ea, state);
-            logger.LogInformation("Received: {0}, Status: {1}", message, state);
+
+            switch(state)
+            {
+                case ReceivedMessageState.UnsuccessfulProcessing:
+                    logger.LogWarning($"Received: {message}, State: {state}");
+                    break;
+                case ReceivedMessageState.MessageRejected:
+                    logger.LogError($"Received: {message}, State: {state}");
+                    break;
+                default:
+                    logger.LogInformation($"Received: {message}, State: {state}");
+                    break;
+            }
         }
+
+        private static readonly BlitzkriegSoftware.SecureRandomLibrary.SecureRandom dice = new();
+
+        /// <summary>
+        /// Do Unit of Work
+        /// </summary>
+        /// <returns>ReceivedMessageState</returns>
+        public static ReceivedMessageState DoUnitOfWork()
+        {
+            var s = ReceivedMessageState.SuccessfullyProcessed;
+
+            var outome = dice.Next(1, 100);
+
+            switch(outome)
+            {
+                case < 20:
+                    s = ReceivedMessageState.MessageRejected;
+                    break;
+                case < 50:
+                    s = ReceivedMessageState.UnsuccessfulProcessing;
+                    break;
+            }
+
+            return s;
+        }
+
+
     }
 }

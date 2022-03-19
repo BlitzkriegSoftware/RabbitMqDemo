@@ -8,12 +8,27 @@ namespace Blitz.RabbitMq.Demo.Models
         /// Verbose Output
         /// </summary>
         [Option('v', "verbose", Required = false, HelpText = "Set output to verbose messages.")]
-        public bool Verbose { get; set; }
+        public bool Verbose { get; set; } = false;
 
         public const int MessageCount_Default = 50;
 
+        /// <summary>
+        /// Message Count
+        /// </summary>
         [Option('m', "Message Count", Required =false, HelpText ="How many messages to generate", Default = MessageCount_Default)]
         public int MessageCount { get; set; } = MessageCount_Default;
 
+        /// <summary>
+        /// Simulate Unit of Work 
+        /// </summary>
+        [Option('s',"Simulate", Required =false, Default =false, HelpText ="Simulate Unit of Work")]
+        public bool SimulateUnitsOfWork { get;set; }
+
+
+        /// <summary>
+        /// Do not purge existing messages 
+        /// </summary>
+        [Option('d', "DoNotPurge", Required = false, Default = false, HelpText = "Do not purge existing messages")]
+        public bool DoNotPurge { get; set; }
     }
 }
