@@ -7,12 +7,26 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
+		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blitz.RabbitMq.Demo", "Blitz.RabbitMq.Console\Blitz.RabbitMq.Demo.csproj", "{EB7841A1-BDE3-4EA5-8EC9-09D5099F8B51}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blitz.RabbitMq.Library", "Blitz.RabbitMq.Library\Blitz.RabbitMq.Library.csproj", "{EEB1215F-5D68-4317-9F02-50EDD69D3E52}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{00F61D58-2DC3-4580-8129-E7EC477CD7B7}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\docker-rabbit-remove.ps1 = scripts\docker-rabbit-remove.ps1
+		scripts\docker-rabbit-remove.sh = scripts\docker-rabbit-remove.sh
+		scripts\docker-rabbitmq-linux.sh = scripts\docker-rabbitmq-linux.sh
+		scripts\docker-rabbitmq-linux.ps1 = scripts\docker-rabbitmq-linux.ps1
+		scripts\rabbit-peek.sh = scripts\rabbit-peek.sh
+		scripts\rabbit-peek.ps1 = scripts\rabbit-peek.ps1
+		scripts\rabbitmq-web.sh = scripts\rabbitmq-web.sh
+		scripts\rabbitmq-web.ps1 = scripts\rabbitmq-web.ps1
+		scripts\rabbitmqadmin.py = scripts\rabbitmqadmin.py
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

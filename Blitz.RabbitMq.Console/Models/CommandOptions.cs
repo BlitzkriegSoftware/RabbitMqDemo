@@ -2,6 +2,9 @@
 
 namespace Blitz.RabbitMq.Demo.Models
 {
+    /// <summary>
+    /// Command Line Options
+    /// </summary>
     public class CommandOptions
     {
         /// <summary>
@@ -10,6 +13,9 @@ namespace Blitz.RabbitMq.Demo.Models
         [Option('v', "verbose", Required = false, HelpText = "Set output to verbose messages.")]
         public bool Verbose { get; set; } = false;
 
+        /// <summary>
+        /// Default Message Count for Simulation
+        /// </summary>
         public const int MessageCount_Default = 50;
 
         /// <summary>

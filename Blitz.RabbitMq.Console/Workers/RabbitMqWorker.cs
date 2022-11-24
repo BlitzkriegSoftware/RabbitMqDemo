@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace Blitz.RabbitMq.Demo.Workers
 {
+    /// <summary>
+    /// Simulates a host interacting w. RabbitMQ
+    /// </summary>
     public class RabbitMqWorker : IRabbitMqWorker
     {
         private readonly ILogger _logger;
@@ -29,6 +32,11 @@ namespace Blitz.RabbitMq.Demo.Workers
             this._config = config;
         }
 
+        /// <summary>
+        /// Entry Point
+        /// </summary>
+        /// <param name="commandLineOptions">(sic)</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public void Run(Models.CommandOptions commandLineOptions)
         {
             RabbitMqWorker._commandOptions = commandLineOptions ?? throw new ArgumentNullException(nameof(commandLineOptions));
@@ -72,6 +80,7 @@ namespace Blitz.RabbitMq.Demo.Workers
         /// <summary>
         /// Handler (Fake) if unit-of-work disable, always succeeds, otherwise random results
         /// </summary>
+        /// <param name="queueEngine">IQueueEngine</param>
         /// <param name="logger">ILogger</param>
         /// <param name="model">IModel</param>
         /// <param name="ea">BasicDeliverEventArgs</param>
@@ -131,7 +140,6 @@ namespace Blitz.RabbitMq.Demo.Workers
 
             return s;
         }
-
 
     }
 }

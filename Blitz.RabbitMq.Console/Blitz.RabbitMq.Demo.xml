@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RabbitMqDemo</name>
+    </assembly>
+    <members>
+        <member name="T:Blitz.RabbitMq.Demo.Libs.AssembyInfoHelper">
+            <summary>
+            Helper: Assembly Info
+            <para>Translates the <c>CustomAttributeData</c> to a usable string value</para>
+            </summary>
+        </member>
+        <member name="M:Blitz.RabbitMq.Demo.Libs.AssembyInfoHelper.TryParse(System.Reflection.CustomAttributeData,System.String@)">
+            <summary>
+            Try Parse a <c>System.Reflection.CustomAttributeData</c> into a string
+            </summary>
+            <param name="attribute">(this)</param>
+            <param name="s">Strng to parse into</param>
+            <returns>True if success</returns>
+        </member>
+        <member name="T:Blitz.RabbitMq.Demo.Models.BlitzAssemblyVersionMetadata">
+            <summary>
+            Custom Metadata For All Blitzkireg Software Micro-Service
+            </summary>
+        </member>
+        <member name="P:Blitz.RabbitMq.Demo.Models.BlitzAssemblyVersionMetadata.Copyright">
+            <summary>
+            Copyright
+            </summary>
+        </member>
+        <member name="P:Blitz.RabbitMq.Demo.Models.BlitzAssemblyVersionMetadata.Company">
+            <summary>
+            Company
+            </summary>
+        </member>
+        <member name="P:Blitz.RabbitMq.Demo.Models.BlitzAssemblyVersionMetadata.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="P:Blitz.RabbitMq.Demo.Models.BlitzAssemblyVersionMetadata.SemanticVersion">
+            <summary>
+            Semantic Version <para>See: semver.org</para>
+            </summary>
+        </member>
+        <member name="P:Blitz.RabbitMq.Demo.Models.BlitzAssemblyVersionMetadata.FileVersion">
+            <summary>
+            File Version
+            </summary>
+        </member>
+        <member name="P:Blitz.RabbitMq.Demo.Models.BlitzAssemblyVersionMetadata.Product">
+            <summary>
+            Product
+            </summary>
+        </member>
+        <member name="M:Blitz.RabbitMq.Demo.Models.BlitzAssemblyVersionMetadata.PropertySet(System.String,System.String)">
+            <summary>
+            Property Set
+            </summary>
+            <param name="name">(sic)</param>
+            <param name="value">(sic)</param>
+        </member>
+        <member name="M:Blitz.RabbitMq.Demo.Models.BlitzAssemblyVersionMetadata.ToString">
+            <summary>
+            Version String
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Blitz.RabbitMq.Demo.Models.CommandOptions">
+            <summary>
+            Command Line Options
+            </summary>
+        </member>
+        <member name="P:Blitz.RabbitMq.Demo.Models.CommandOptions.Verbose">
+            <summary>
+            Verbose Output
+            </summary>
+        </member>
+        <member name="F:Blitz.RabbitMq.Demo.Models.CommandOptions.MessageCount_Default">
+            <summary>
+            Default Message Count for Simulation
+            </summary>
+        </member>
+        <member name="P:Blitz.RabbitMq.Demo.Models.CommandOptions.MessageCount">
+            <summary>
+            Message Count
+            </summary>
+        </member>
+        <member name="P:Blitz.RabbitMq.Demo.Models.CommandOptions.SimulateUnitsOfWork">
+            <summary>
+            Simulate Unit of Work 
+            </summary>
+        </member>
+        <member name="P:Blitz.RabbitMq.Demo.Models.CommandOptions.DoNotPurge">
+            <summary>
+            Do not purge existing messages 
+            </summary>
+        </member>
+        <member name="T:Blitz.RabbitMq.Demo.Models.FakeMessage">
+            <summary>
+            Message: Fake
+            </summary>
+        </member>
+        <member name="M:Blitz.RabbitMq.Demo.Models.FakeMessage.#ctor(System.String)">
+            <summary>
+            CTOR
+            </summary>
+            <param name="message">Messages</param>
+        </member>
+        <member name="P:Blitz.RabbitMq.Demo.Models.FakeMessage.MessageId">
+            <summary>
+            Message Id
+            </summary>
+        </member>
+        <member name="P:Blitz.RabbitMq.Demo.Models.FakeMessage.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="P:Blitz.RabbitMq.Demo.Models.FakeMessage.DateCreated">
+            <summary>
+            Date Created
+            </summary>
+        </member>
+        <member name="M:Blitz.RabbitMq.Demo.Models.FakeMessage.ToString">
+            <summary>
+            ToString
+            </summary>
+            <returns>string</returns>
+        </member>
+        <member name="M:Blitz.RabbitMq.Demo.Models.FakeMessage.ToJson">
+            <summary>
+            To JSON
+            </summary>
+            <returns>string</returns>
+        </member>
+        <member name="T:Blitz.RabbitMq.Demo.Program">
+            <summary>
+            Entry Point Class
+            </summary>
+        </member>
+        <member name="P:Blitz.RabbitMq.Demo.Program.Services">
+            <summary>
+            Dependancy Injection Services Setup
+            </summary>
+        </member>
+        <member name="P:Blitz.RabbitMq.Demo.Program.ProgramMetadata">
+            <summary>
+            Semantic Version, etc from Assembly Metadata
+            </summary>
+        </member>
+        <member name="T:Blitz.RabbitMq.Demo.Workers.RabbitMqWorker">
+            <summary>
+            Simulates a host interacting w. RabbitMQ
+            </summary>
+        </member>
+        <member name="M:Blitz.RabbitMq.Demo.Workers.RabbitMqWorker.#ctor(Microsoft.Extensions.Logging.ILogger{Blitz.RabbitMq.Demo.Workers.RabbitMqWorker},Microsoft.Extensions.Configuration.IConfigurationRoot)">
+            <summary>
+            CTOR
+            </summary>
+            <param name="logger">ILogger</param>
+            <param name="config">IConfigurationRoot</param>
+        </member>
+        <member name="M:Blitz.RabbitMq.Demo.Workers.RabbitMqWorker.Run(Blitz.RabbitMq.Demo.Models.CommandOptions)">
+            <summary>
+            Entry Point
+            </summary>
+            <param name="commandLineOptions">(sic)</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Blitz.RabbitMq.Demo.Workers.RabbitMqWorker.MyQueueMessageHandler(Blitz.RabbitMq.Library.IQueueEngine,Microsoft.Extensions.Logging.ILogger,RabbitMQ.Client.IModel,RabbitMQ.Client.Events.BasicDeliverEventArgs)">
+            <summary>
+            Handler (Fake) if unit-of-work disable, always succeeds, otherwise random results
+            </summary>
+            <param name="queueEngine">IQueueEngine</param>
+            <param name="logger">ILogger</param>
+            <param name="model">IModel</param>
+            <param name="ea">BasicDeliverEventArgs</param>
+        </member>
+        <member name="M:Blitz.RabbitMq.Demo.Workers.RabbitMqWorker.DoUnitOfWork">
+            <summary>
+            Do Unit of Work
+            </summary>
+            <returns>ReceivedMessageState</returns>
+        </member>
+    </members>
+</doc>

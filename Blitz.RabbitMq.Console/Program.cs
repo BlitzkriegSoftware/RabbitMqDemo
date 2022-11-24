@@ -10,6 +10,9 @@ using System.IO;
 
 namespace Blitz.RabbitMq.Demo
 {
+    /// <summary>
+    /// Entry Point Class
+    /// </summary>
     public class Program
     {
         static void Main(string[] args)
@@ -44,6 +47,9 @@ namespace Blitz.RabbitMq.Demo
 
         private static IServiceProvider _services;
 
+        /// <summary>
+        /// Dependancy Injection Services Setup
+        /// </summary>
         public static IServiceProvider Services
         {
             get
