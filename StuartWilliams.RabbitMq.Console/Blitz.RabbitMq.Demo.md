@@ -33,7 +33,7 @@
 - [RabbitMqWorker](#T-Blitz-RabbitMq-Demo-Workers-RabbitMqWorker 'Blitz.RabbitMq.Demo.Workers.RabbitMqWorker')
   - [#ctor(logger,config)](#M-Blitz-RabbitMq-Demo-Workers-RabbitMqWorker-#ctor-Microsoft-Extensions-Logging-ILogger{Blitz-RabbitMq-Demo-Workers-RabbitMqWorker},Microsoft-Extensions-Configuration-IConfigurationRoot- 'Blitz.RabbitMq.Demo.Workers.RabbitMqWorker.#ctor(Microsoft.Extensions.Logging.ILogger{Blitz.RabbitMq.Demo.Workers.RabbitMqWorker},Microsoft.Extensions.Configuration.IConfigurationRoot)')
   - [DoUnitOfWork()](#M-Blitz-RabbitMq-Demo-Workers-RabbitMqWorker-DoUnitOfWork 'Blitz.RabbitMq.Demo.Workers.RabbitMqWorker.DoUnitOfWork')
-  - [MyQueueMessageHandler(queueEngine,logger,model,ea)](#M-Blitz-RabbitMq-Demo-Workers-RabbitMqWorker-MyQueueMessageHandler-Blitz-RabbitMq-Library-IQueueEngine,Microsoft-Extensions-Logging-ILogger,RabbitMQ-Client-IModel,RabbitMQ-Client-Events-BasicDeliverEventArgs- 'Blitz.RabbitMq.Demo.Workers.RabbitMqWorker.MyQueueMessageHandler(Blitz.RabbitMq.Library.IQueueEngine,Microsoft.Extensions.Logging.ILogger,RabbitMQ.Client.IModel,RabbitMQ.Client.Events.BasicDeliverEventArgs)')
+  - [MyQueueMessageHandler(queueEngine,logger,model,ea)](#M-Blitz-RabbitMq-Demo-Workers-RabbitMqWorker-MyQueueMessageHandler-StuartWilliams-RabbitMq-Library-IQueueEngine,Microsoft-Extensions-Logging-ILogger,RabbitMQ-Client-IModel,RabbitMQ-Client-Events-BasicDeliverEventArgs- 'Blitz.RabbitMq.Demo.Workers.RabbitMqWorker.MyQueueMessageHandler(StuartWilliams.RabbitMq.Library.IQueueEngine,Microsoft.Extensions.Logging.ILogger,RabbitMQ.Client.IModel,RabbitMQ.Client.Events.BasicDeliverEventArgs)')
   - [Run(commandLineOptions)](#M-Blitz-RabbitMq-Demo-Workers-RabbitMqWorker-Run-Blitz-RabbitMq-Demo-Models-CommandOptions- 'Blitz.RabbitMq.Demo.Workers.RabbitMqWorker.Run(Blitz.RabbitMq.Demo.Models.CommandOptions)')
 
 <a name='T-Blitz-RabbitMq-Demo-Libs-AssembyInfoHelper'></a>
@@ -337,7 +337,7 @@ ReceivedMessageState
 
 This method has no parameters.
 
-<a name='M-Blitz-RabbitMq-Demo-Workers-RabbitMqWorker-MyQueueMessageHandler-Blitz-RabbitMq-Library-IQueueEngine,Microsoft-Extensions-Logging-ILogger,RabbitMQ-Client-IModel,RabbitMQ-Client-Events-BasicDeliverEventArgs-'></a>
+<a name='M-Blitz-RabbitMq-Demo-Workers-RabbitMqWorker-MyQueueMessageHandler-StuartWilliams-RabbitMq-Library-IQueueEngine,Microsoft-Extensions-Logging-ILogger,RabbitMQ-Client-IModel,RabbitMQ-Client-Events-BasicDeliverEventArgs-'></a>
 ### MyQueueMessageHandler(queueEngine,logger,model,ea) `method`
 
 ##### Summary
@@ -348,7 +348,7 @@ Handler (Fake) if unit-of-work disable, always succeeds, otherwise random result
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| queueEngine | [Blitz.RabbitMq.Library.IQueueEngine](#T-Blitz-RabbitMq-Library-IQueueEngine 'Blitz.RabbitMq.Library.IQueueEngine') | IQueueEngine |
+| queueEngine | [StuartWilliams.RabbitMq.Library.IQueueEngine](#T-StuartWilliams-RabbitMq-Library-IQueueEngine 'StuartWilliams.RabbitMq.Library.IQueueEngine') | IQueueEngine |
 | logger | [Microsoft.Extensions.Logging.ILogger](#T-Microsoft-Extensions-Logging-ILogger 'Microsoft.Extensions.Logging.ILogger') | ILogger |
 | model | [RabbitMQ.Client.IModel](#T-RabbitMQ-Client-IModel 'RabbitMQ.Client.IModel') | IModel |
 | ea | [RabbitMQ.Client.Events.BasicDeliverEventArgs](#T-RabbitMQ-Client-Events-BasicDeliverEventArgs 'RabbitMQ.Client.Events.BasicDeliverEventArgs') | BasicDeliverEventArgs |

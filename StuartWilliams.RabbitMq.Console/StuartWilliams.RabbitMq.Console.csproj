@@ -2,15 +2,15 @@
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
-		<TargetFramework>net6.0</TargetFramework>
-		<LangVersion>9.0</LangVersion>
-		<Copyright>Copyright © 2020-2022 Blitzkrieg Software</Copyright>
+		<TargetFramework>net8.0</TargetFramework>
+		<LangVersion>11.0</LangVersion>
+		<Copyright>Copyright © 2020-2024 Blitzkrieg Software</Copyright>
 		<Company>Blitzkrieg Software</Company>
 		<Description>Demo using RabbitMQ in DotNet Core</Description>
-		<InformationalVersion>2.6.0</InformationalVersion>
-		<Version>2.6.0</Version>
+		<InformationalVersion>2.8.0</InformationalVersion>
+		<Version>2.8.0</Version>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
-		<PackageIcon>favicon_32x32_o7Z_icon.ico</PackageIcon>
+		<PackageIcon>Circle-Me.png</PackageIcon>
 		<PackageIconUrl />
 		<RepositoryType>Git</RepositoryType>
 		<RepositoryUrl>https://github.com/BlitzkriegSoftware/RabbitMqDemo</RepositoryUrl>
@@ -18,16 +18,23 @@
 		<AssemblyName>RabbitMqDemo</AssemblyName>
 		<EnableNETAnalyzers>True</EnableNETAnalyzers>
 		<AnalysisLevel>latest</AnalysisLevel>
-		<ApplicationIcon>favicon_32x32_o7Z_icon.ico</ApplicationIcon>
+		<ApplicationIcon>Circle-Me.ico</ApplicationIcon>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 		<DocumentationFile>.\Blitz.RabbitMq.Demo.xml</DocumentationFile>
 		<Title>A Rabbit MQ Demo</Title>
 		<Authors>Stuart Williams</Authors>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<StartupObject>Blitz.RabbitMq.Demo.Program</StartupObject>
+		<Nullable>disable</Nullable>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 		<PlatformTarget>x64</PlatformTarget>
+		<WarningLevel>7</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <WarningLevel>7</WarningLevel>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -35,13 +42,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Content Include="favicon_32x32_o7Z_icon.ico" />
+		<Content Include="Circle-Me.ico" />
 		<Content Include="rabbitmqconfig.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Include="..\Circle-Me.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
 	  <None Include="..\LICENSE">
 	    <Pack>True</Pack>
 	    <PackagePath>\</PackagePath>
@@ -53,21 +64,21 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="BlitzkriegSoftware.SecureRandomLibrary" Version="1.0.4" />
+		<PackageReference Include="BlitzkriegSoftware.SecureRandomLibrary" Version="1.0.9" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="7.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
-		<PackageReference Include="NetEscapades.Extensions.Logging.RollingFile" Version="2.4.1" />
+		<PackageReference Include="NetEscapades.Extensions.Logging.RollingFile" Version="2.5.0" />
 	</ItemGroup>
 	
 	<ItemGroup>
-		<PackageReference Include="RabbitMQ.Client" Version="6.4.0" />
+		<PackageReference Include="RabbitMQ.Client" Version="6.8.1" />
 		<PackageReference Include="CommandLineParser" Version="2.9.1" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.4.0" />
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.9.2" />
 		<PackageReference Include="SecurityCodeScan.VS2019" Version="5.6.7">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -82,6 +93,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Blitz.RabbitMq.Library\Blitz.RabbitMq.Library.csproj" />
+	  <ProjectReference Include="..\StuartWilliams.RabbitMq.Library\StuartWilliams.RabbitMq.Library.csproj" />
 	</ItemGroup>
 </Project>

@@ -1,8 +1,8 @@
-﻿using Blitz.RabbitMq.Library.Models;
+﻿using StuartWilliams.RabbitMq.Library.Models;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
-namespace Blitz.RabbitMq.Library
+namespace StuartWilliams.RabbitMq.Library
 {
 
     /// <summary>

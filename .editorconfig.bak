@@ -1,9 +1,9 @@
 ﻿[*.cs]
 
 dotnet_diagnostic.IDE0063.severity = silent
-csharp_prefer_simple_using_statement = true:silent
 
 csharp_using_directive_placement = outside_namespace:silent
+csharp_prefer_simple_using_statement = true:silent
 csharp_prefer_braces = true:silent
 csharp_style_namespace_declarations = block_scoped:silent
 csharp_style_prefer_method_group_conversion = true:silent

@@ -84,7 +84,7 @@ RabbitMqDemo.exe -v -m 100
 
 The program will run, queue up, then dequeue the messages, and quit.
 
-## Library: Blitz.RabbitMq.Library
+## Library: StuartWilliams.RabbitMq.Library
 
 Setting up a client:
 

@@ -1,9 +1,9 @@
-﻿using Blitz.RabbitMq.Library;
-using Blitz.RabbitMq.Library.Models;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using StuartWilliams.RabbitMq.Library;
+using StuartWilliams.RabbitMq.Library.Models;
 using System;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,7 +41,7 @@ namespace Blitz.RabbitMq.Demo.Workers
         {
             RabbitMqWorker._commandOptions = commandLineOptions ?? throw new ArgumentNullException(nameof(commandLineOptions));
 
-            var queueConfig = new Library.Models.RabbitMqInstanceConfiguration();
+            var queueConfig = new StuartWilliams.RabbitMq.Library.Models.RabbitMqInstanceConfiguration();
             foreach (var c in this._config.AsEnumerable())
             {
                 queueConfig.SetProperty(c.Key, c.Value);
@@ -86,10 +86,10 @@ namespace Blitz.RabbitMq.Demo.Workers
         /// <param name="ea">BasicDeliverEventArgs</param>
         public static void MyQueueMessageHandler(IQueueEngine queueEngine, ILogger logger, IModel model, BasicDeliverEventArgs ea)
         {
-            if (queueEngine == null) throw new ArgumentNullException(nameof(queueEngine));
-            if (logger == null) throw new ArgumentNullException(nameof(logger));
-            if (model == null) throw new ArgumentNullException(nameof(model));
-            if (ea == null) throw new ArgumentNullException(nameof(ea));
+            ArgumentNullException.ThrowIfNull(queueEngine);
+            ArgumentNullException.ThrowIfNull(logger);
+            ArgumentNullException.ThrowIfNull(model);
+            ArgumentNullException.ThrowIfNull(ea);
 
             var state = ReceivedMessageState.SuccessfullyProcessed;
             if(RabbitMqWorker._commandOptions.SimulateUnitsOfWork)

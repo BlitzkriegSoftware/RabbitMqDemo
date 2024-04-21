@@ -2,7 +2,7 @@
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
-namespace Blitz.RabbitMq.Library
+namespace StuartWilliams.RabbitMq.Library
 {
     /// <summary>
     /// Delegate Queue item handler

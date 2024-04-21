@@ -1,7 +1,7 @@
 ﻿using System;
 using RabbitMQ.Client;
 
-namespace Blitz.RabbitMq.Library.Libs
+namespace StuartWilliams.RabbitMq.Library.Libs
 {
     /// <summary>
     /// Utility: Useful RabbitMQ utilities

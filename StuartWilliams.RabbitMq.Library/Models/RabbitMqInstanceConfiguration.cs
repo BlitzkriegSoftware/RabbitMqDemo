@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Blitz.RabbitMq.Library.Models
+namespace StuartWilliams.RabbitMq.Library.Models
 {
     /// <summary>
     /// Configuration: Specific Queue
@@ -40,7 +40,7 @@ namespace Blitz.RabbitMq.Library.Models
         /// <summary>
         /// Is this valid?
         /// </summary>
-        public bool isValid
+        public bool IsValid
         {
             get
             {

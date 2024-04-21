@@ -1,4 +1,4 @@
-﻿namespace Blitz.RabbitMq.Library.Models
+﻿namespace StuartWilliams.RabbitMq.Library.Models
 {
     /// <summary>
     /// What is the state of the received message

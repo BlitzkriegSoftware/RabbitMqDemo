@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Blitz.RabbitMq.Library.Models
+namespace StuartWilliams.RabbitMq.Library.Models
 {
     /// <summary>
     /// Configuration: One RabbitMQ Instance

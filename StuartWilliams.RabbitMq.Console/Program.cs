@@ -40,7 +40,6 @@ namespace Blitz.RabbitMq.Demo
                    });
         }
 
-
         #region "DI"
 
         private static string[] _args { get; set; }

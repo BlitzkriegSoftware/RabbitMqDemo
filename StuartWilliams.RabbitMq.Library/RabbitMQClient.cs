@@ -1,5 +1,5 @@
-﻿using Blitz.RabbitMq.Library.Libs;
-using Blitz.RabbitMq.Library.Models;
+﻿using StuartWilliams.RabbitMq.Library.Libs;
+using StuartWilliams.RabbitMq.Library.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -8,7 +8,7 @@ using RabbitMQ.Client.Events;
 using System;
 using System.Text;
 
-namespace Blitz.RabbitMq.Library
+namespace StuartWilliams.RabbitMq.Library
 {
     /// <summary>
     /// Client: RabbitMQ Blitzkrieg Style
